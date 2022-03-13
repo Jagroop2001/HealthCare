@@ -37,7 +37,7 @@ export default class HomeScreen  extends React.Component  {
       filterValue.map((data) =>{
         return(
           <TouchableOpacity
-           onPress={()=>{this.props.navigation.navigate("DiseaseDetailsScreen")}}
+           onPress={()=>{this.props.navigation.navigate("DiseaseDetailsScreen" , {id : data.id})}}
           >
        <View style={styles.cardStyle}>
          
