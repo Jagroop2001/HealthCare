@@ -10,6 +10,11 @@ import SuccessfullyRegister from "../Screens/Registration/SuccessfulRegister";
 import DrawerComponent from "../components/DrawerComponent";
 import DrawerNavigator from "./DrawerNavigation";
 import DiseaseDetailsScreen from "../Screens/DiseaseDetailsScreen";
+import Run from "../Screens/RunningScreens/Run";
+import CharityBasedRunning from "../Screens/RunningScreens/CharityBasedRunning";
+import BMI from "../Screens/RunningScreens/BMI";
+import Running from "../Screens/RunningScreens/Running";
+import Marathons from "../Screens/RunningScreens/Marathons";
 const Stack = createStackNavigator();
 
 const MainStackNavigator = () => {
@@ -28,6 +33,14 @@ const MainStackNavigator = () => {
       <Stack.Screen name="DrawerNavigation" component={DrawerNavigator} />
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen name="DiseaseDetailsScreen" component={DiseaseDetailsScreen} />
+      <Stack.Screen name="Run" component={Run} />
+      <Stack.Screen name="CharityBasedRunning" component={CharityBasedRunning} />
+      <Stack.Screen name="BMI" component={BMI} />
+      <Stack.Screen name="Running" component={Running} />
+      <Stack.Screen name="Marathons" component={Marathons} />
+
+
+
     </Stack.Navigator>
   );
 }
