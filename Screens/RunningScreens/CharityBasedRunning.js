@@ -18,7 +18,7 @@ export default class CharityBasedRunning extends React.Component {
                 <Text style={style.headingText}>Why Should you go for it ?</Text>
                  {LIST.map((data) => (
                      
-                        <View style={{flexDirection: 'row'}}>
+                        <View style={{flexDirection: 'row', marginRight: 10}}>
                         <Text style={style.text}>{'\u2022'}</Text>
                         <Text style={style.text}>{data.value}</Text>
                       </View>
@@ -46,6 +46,7 @@ const style = StyleSheet.create({
         fontSize : 20,
         margin:5,
         color:"#5F6A6A",
+      
         
     },
     image:{

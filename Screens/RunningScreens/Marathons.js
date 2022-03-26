@@ -1,5 +1,6 @@
 import React from "react";
-import {View , Text, StyleSheet, Dimensions, ScrollView , Image} from 'react-native';
+import {View , Text, StyleSheet, Dimensions, ScrollView , Image, TouchableOpacity, Linking} from 'react-native';
+import NativeLinkingManager from "react-native/Libraries/Linking/NativeLinkingManager";
 import { MARATHON } from "../../assets/constants";
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -13,14 +14,18 @@ export default class Marathons extends React.Component {
                 {
                     MARATHON.map ((data) => {
                         return(
+                            <TouchableOpacity
+                             onPress={() => {Linking.openURL(data.url)}}
+                            >
                <View style={styles.card}>
                    <Image  source={{uri : data.value}} style={styles.imageStyle}/>
                    <View  style={{flexDirection:"row"}}>
-                       <Text style={styles.textStyle}>Price : ₹ 200</Text>
+                       <Text style={styles.textStyle}>Price : ₹ {data.price}</Text>
                        <Text style={styles.textStyle}>Location : India</Text>
                    </View>
 
                </View>
+               </TouchableOpacity>
                         )
                })
     }

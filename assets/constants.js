@@ -10,11 +10,11 @@ export const LIST = [
 ];
 
 export const MARATHON =[
-   {id:"1" , value:"https://ts-production.imgix.net/images/ea795e54-1ef2-4057-8d4e-50d5c4ba2ec5.jpg?auto=compress,format&w=800&h=450"},
-   {id:"2" , value:"https://ts-production.imgix.net/images/230695b7-a3c4-463e-a476-c27cb795aee9.jpg?auto=compress,format&w=800&h=450"},
-   {id:"3" , value:"https://ts-production.imgix.net/images/8e79eaba-f1ff-4c57-9cb8-9a3a3c537036.jpg?auto=compress,format&w=800&h=450"},
-   {id:"4" , value:"https://ts-production.imgix.net/images/de54dad1-44dd-46ac-a52c-f4c21740a533.jpg?auto=compress,format&w=800&h=450"},
-   {id:"5" , value:"https://ts-production.imgix.net/images/3ec85618-8e9c-42a0-b501-fd9975cb674b.jpg?auto=compress,format&w=800&h=450"},
-   {id:"6" , value:"https://ts-production.imgix.net/images/b33ae907-dd30-4d7e-8e71-31fae043eb9a.jpg?auto=compress,format&w=800&h=450"}
+   {id:"1" , value:"https://ts-production.imgix.net/images/ea795e54-1ef2-4057-8d4e-50d5c4ba2ec5.jpg?auto=compress,format&w=800&h=450",price: "0" , url:"https://www.townscript.com/e/marathon-cycling-and-running-challenge-00465655654654"},
+   {id:"2" , value:"https://ts-production.imgix.net/images/mobile-cover-uploaded/983ac956-97ca-498b-8d7f-710c7dc1a816.jpg?auto=compress,format&w=375&h=200",price: "500", url:"https://www.townscript.com/e/run-4-earth-neerathon-3"},
+   {id:"3" , value:"https://ts-production.imgix.net/images/8e79eaba-f1ff-4c57-9cb8-9a3a3c537036.jpg?auto=compress,format&w=800&h=450",price: "480", url:"https://www.townscript.com/e/new-gurugram-half-marathon-2022-313340"},
+   {id:"4" , value:"https://ts-production.imgix.net/images/de54dad1-44dd-46ac-a52c-f4c21740a533.jpg?auto=compress,format&w=800&h=450", price: "100",url:"https://www.townscript.com/e/elite-marathon"},
+   {id:"5" , value:"https://ts-production.imgix.net/images/3ec85618-8e9c-42a0-b501-fd9975cb674b.jpg?auto=compress,format&w=800&h=450", price: "100", url:"https://www.townscript.com/e/familython-run-for-fit-family-2022-023214"},
+   {id:"6" , value:"https://ts-production.imgix.net/images/b33ae907-dd30-4d7e-8e71-31fae043eb9a.jpg?auto=compress,format&w=800&h=450", price: "1100", url:"https://www.townscript.com/e/maha-marathon-nagpur-134433"}
    
 ];
