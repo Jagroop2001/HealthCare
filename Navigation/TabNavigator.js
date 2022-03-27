@@ -17,7 +17,7 @@ const BottomTabNavigator = () => {
   }}
 
   >
-     <Tab.Screen name="HomeBar" component={HomeBar}  />
+     
       <Tab.Screen name="HomeScreen" component={HomeScreen}  />
       <Tab.Screen name="Run" component={Run} /> 
       <Tab.Screen name="Settings" component={Settings} /> 

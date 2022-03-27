@@ -10,14 +10,7 @@ export default class Footer extends React.Component{
       
 
             <View style={styles.fotterContainer}>
-            <TouchableOpacity
-            onPress={()=> {
-                this.props.navigation.navigate('HomeBar')
-            } }
-            >
-                <Image style={{height: 30 , width: 30 , tintColor :"#00B0FF", marginTop:2,}} source={require('../Images/home.png')}/>
-                
-            </TouchableOpacity>
+         
             <TouchableOpacity
              onPress={()=> {
                 this.props.navigation.navigate('HomeScreen')
