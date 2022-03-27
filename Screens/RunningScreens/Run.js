@@ -13,6 +13,7 @@ export default class Run extends React.Component {
     render() {
         return(
             <View style={styles.container}>
+                 <HeaderComponent name="HealthCare"/>
                 <ScrollView>
                     <TouchableOpacity
                      onPress={() => this.navigationToOther('Running')}

@@ -25,7 +25,7 @@ export default class  DiseaseDetailsScreen extends React.Component {
         return(
             
             <View style={styles.flex}>
-                <HeaderComponent/>
+               
                 <ScrollView>
                 <Image source={{uri : data.image}} style={styles.imageStyle}/>    
                 <Text style={styles.headingText}>About {data.title}</Text>

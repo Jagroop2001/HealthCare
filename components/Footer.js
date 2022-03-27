@@ -32,7 +32,7 @@ export default class Footer extends React.Component{
                     this.props.navigation.navigate('Settings')
                 } }
             >
-                <Image  style={{height: 30 , width: 30 , tintColor :"#00B0FF", marginTop:2}} source={require('../Images/settings.png')}></Image>
+                <Image  style={{height: 30 , width: 30 , tintColor :"#00B0FF", marginTop:2}} source={require('../Images/handshake.png')}></Image>
                
             </TouchableOpacity>
        

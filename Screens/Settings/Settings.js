@@ -7,11 +7,13 @@ import {
   Button,
   Alert,
   ActivityIndicator,
-  ScrollView
+  ScrollView,
+  TouchableOpacity
 } from 'react-native';
 
 import GetLocation from 'react-native-get-location';
 import Footer from '../../components/Footer';
+import Share from 'react-native-share';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -40,7 +42,9 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   button: {
-    marginBottom: 8,
+    margin: 20,
+
+
   },
 });
 
@@ -89,8 +93,9 @@ export default class Settings extends Component {
     const {location, loading} = this.state;
     return (
       <View style={styles.container}>
+         <HeaderComponent name="Get Instant Help"/>
           <ScrollView>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
+        <Text style={styles.welcome}>Need Someone's Help ??</Text>
         <Text style={styles.instructions}>
           To get location, press the button:
         </Text>
@@ -105,15 +110,8 @@ export default class Settings extends Component {
         {location ? (
           <Text style={styles.location}>{JSON.stringify(location, 0, 2)}</Text>
         ) : null}
-        <Text style={styles.instructions}>Extra functions:</Text>
-        <View style={styles.button}>
-          <Button
-            title="Open App Settings"
-            onPress={() => {
-              GetLocation.openAppSettings();
-            }}
-          />
-        </View>
+        <Text style={styles.instructions}>If somehow some eror occur press below button :</Text>
+       
         <View style={styles.button}>
           <Button
             title="Open Gps Settings"
@@ -122,23 +120,22 @@ export default class Settings extends Component {
             }}
           />
         </View>
-        <View style={styles.button}>
-          <Button
-            title="Open Wifi Settings"
-            onPress={() => {
-              GetLocation.openWifiSettings();
-            }}
-          />
+        <TouchableOpacity
+         onPress={() =>{
+          Share.open(this.state.location)
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    err && console.log(err);
+  });
+         }}
+        >
+        <View style={{height: 50 , width: 200 , backgroundColor:"#4C9CDF", justifyContent:"center", alignSelf:"center", marginTop:40, borderRadius: 10}}>
+          <Text style={{alignSelf:"center" , color:"white", fontSize:20}}>Share Location</Text>
         </View>
-        <View style={styles.button}>
-          <Button
-            title="Open Mobile Data Settings"
-            onPress={() => {
-              GetLocation.openCelularSettings();
-            }}
-          />
-        </View>
-        <Text style={styles.instructions}>{instructions}</Text>
+       </TouchableOpacity>
+       
 </ScrollView>
 <Footer navigation={this.props.navigation}/>
       </View>

@@ -22,7 +22,7 @@ export default class HomeScreen  extends React.Component  {
 
   return (
     <View  style={styles.container}>
-      <HeaderComponent/>
+      <HeaderComponent name="Preventions"/>
       <ScrollView>
         <View style={styles.searchBox}>
           <TextInput
