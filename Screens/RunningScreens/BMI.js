@@ -5,7 +5,8 @@ import {
   TextInput,
   View,
   TouchableOpacity,
-  ImageBackground
+  ImageBackground,
+  Dimensions
 } from "react-native";
 
 export default class App extends React.Component {
@@ -38,17 +39,23 @@ export default class App extends React.Component {
   render() {
     return (
       <ImageBackground
-        source={require("../../Images/bg.png")}
-        style={{ width: "100%", height: "100%" , tintColor:"white" }}
+        source={require("../../Images/BGI.png")}
+        style={{ position: 'absolute',
+        left: 0,
+        top: 0,height: "100%",
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
+      }}
       >
         <View style={styles.container}>
           <Text
             style={{
-              color: "#FFCB1F",
+              
+              color: "red",
               justifyContent: "center",
               alignSelf: "center",
               marginTop: 30,
-              fontSize: 15
+              fontSize: 30
             }}
           >
             BMI Calculator
@@ -56,7 +63,7 @@ export default class App extends React.Component {
           <View style={styles.intro}>
             <TextInput
               placeholder="Height"
-              placeholderTextColor="yellow"
+              placeholderTextColor="orange"
               keyboardType="numeric"
               style={styles.input}
               onChangeText={height => {
@@ -65,7 +72,7 @@ export default class App extends React.Component {
             />
             <TextInput
               placeholder="Mass"
-              placeholderTextColor="yellow"
+              placeholderTextColor="orange"
               keyboardType="numeric"
               style={styles.input}
               onChangeText={mass => {
@@ -75,7 +82,7 @@ export default class App extends React.Component {
           </View>
 
           <TouchableOpacity
-            style={styles.button}
+            
             onPress={this.handleCalculate}
           >
             <Text style={styles.buttonText}>Calculate </Text>
@@ -102,14 +109,12 @@ const styles = StyleSheet.create({
     height: 80,
     textAlign: "center",
     width: "50%",
-    fontSize: 50,
+    fontSize: 30,
     marginTop: 24,
     color: "#FFCB1F",
 
   },
-  button: {
-    backgroundColor: "#1D1D1B"
-  },
+ 
   buttonText: {
     alignSelf: "center",
     padding: 30,

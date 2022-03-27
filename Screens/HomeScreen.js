@@ -5,6 +5,7 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 import diseaseData from "../API/diseaseData";
 import { TextInput } from "react-native-gesture-handler";
+import Footer from "../components/Footer";
 
 
 export default class HomeScreen  extends React.Component  {
@@ -51,6 +52,7 @@ export default class HomeScreen  extends React.Component  {
       
     } 
     </ScrollView>
+    <Footer navigation ={this.props.navigation} />
     </View>
   );
   }

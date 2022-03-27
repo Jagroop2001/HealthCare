@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet , Dimensions, Image, ScrollView} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Footer from '../../components/Footer';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
@@ -47,6 +48,7 @@ export default class Run extends React.Component {
                 </View>
                 </TouchableOpacity>
                 </ScrollView>
+                <Footer navigation={this.props.navigation} />
             </View>
         );
     }
