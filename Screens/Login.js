@@ -102,8 +102,8 @@ export default class Login extends React.Component {
                </View>
                <TouchableOpacity style={styles.buttonStyle}
                      onPress={()=> {
-                         this.doSingIn(this.state.email , this.state.password)
-                         //this.props.navigation.navigate("HomeScreen")
+                         //this.doSingIn(this.state.email , this.state.password)
+                         this.props.navigation.navigate("HomeScreen")
                         }}
                     >
                     <Text   style={styles.smallTextStyle}>Login</Text>
