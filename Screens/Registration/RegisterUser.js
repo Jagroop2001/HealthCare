@@ -4,6 +4,7 @@ import { ScrollView, TextInput, TouchableOpacity } from "react-native-gesture-ha
 import {Picker} from '@react-native-picker/picker';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
+import auth from '@react-native-firebase/auth';
 
 export default class RegisterUser extends React.Component {
          
@@ -15,6 +16,48 @@ export default class RegisterUser extends React.Component {
          {id: "3" , value:"Other"},
      ];
 
+
+     state = {
+        email: '',
+        password: '',
+        selectedValue:''
+     }
+     handleEmail = (text) => {
+        this.setState({ email: text })
+     }
+     handlePassword = (text) => {
+        this.setState({ password: text })
+     }
+     
+     onLogin =()=> {
+       
+        console.log(this.state.email + " " + this.state.password);
+        if(this.state.email =="" || this.state.password==""){
+            alert("Please Enter Email or Password !!")
+            return;
+        }
+        else {
+        auth()
+          .createUserWithEmailAndPassword(this.state.email, this.state.password)
+          .then(() => {
+            console.log('User account created & signed in!');
+            alert("User account successfully created")
+            this.props.navigation.navigate("SuccessfulRegister")
+
+          })
+          .catch(error => {
+            if (error.code === 'auth/email-already-in-use') {
+              console.log('That email address is already in use!');
+            }
+        
+            if (error.code === 'auth/invalid-email') {
+              console.log('That email address is invalid!');
+            }
+        
+            console.error(error);
+          });
+        }
+     }
     render(){
         return(
             <View style={{flex :1 , backgroundColor : "white"}}>
@@ -48,12 +91,17 @@ export default class RegisterUser extends React.Component {
                         placeholder="Enter your Email"
                         placeholderTextColor={"#817e7d"}
                         style={{marginLeft : windowHeight*0.02}}
+                        onChangeText = {this.handleEmail}
                        />
                    </View>
                    <View style={{flexDirection :"row"}}>
                    <View style={styles.containerHalf}>
                        <Picker
+                        selectedValue={this.state.selectedValue}
                       style={{color :"#817e7d"}}
+                      onValueChange={(itemValue, itemIndex) =>
+                        this.setState({selectedValue : itemValue})
+                      }
                      >
                     {
                         this.Gender.map((data) => {
@@ -94,19 +142,17 @@ export default class RegisterUser extends React.Component {
                         placeholder="Enter your Password"
                         placeholderTextColor={"#817e7d"}
                         style={{marginLeft : windowHeight*0.02}}
+                        onChangeText = {this.handlePassword}
                        />
                    </View>
-                   <View style={styles.containerStyle}>
-                       <TextInput
-                        placeholder="Confirm Password"
-                        placeholderTextColor={"#817e7d"}
-                        style={{marginLeft : windowHeight*0.02}}
-                       />
-                   </View>
+                 
                   
                </View>
                <TouchableOpacity style={styles.buttonStyle}
-                     onPress={()=> { this.props.navigation.navigate("SuccessfulRegister")}}
+                     onPress={()=> { 
+                        this.onLogin()
+                        // this.props.navigation.navigate("SuccessfulRegister")
+                        }}
                     >
                     <Text   style={styles.smallTextStyle}>Register</Text>
                     </TouchableOpacity>

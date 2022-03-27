@@ -1,11 +1,66 @@
 import React from "react";
-import {View  , Text , StyleSheet , Image , Dimensions} from "react-native";
-import { ScrollView, TextInput, TouchableOpacity } from "react-native-gesture-handler";
+import {View  , Text , StyleSheet , Image , Dimensions, Alert, TouchableOpacity, TextInput} from "react-native";
+import { ScrollView,  } from "react-native-gesture-handler";
+import { firebase } from "@react-native-firebase/auth";
 import {Picker} from '@react-native-picker/picker';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
+import auth from '@react-native-firebase/auth';
 
 export default class Login extends React.Component {
+    state = {
+        email: '',
+        password: ''
+     }
+
+    //  componentDidMount() {
+        
+    //     auth().onAuthStateChanged((user) => {
+    //         if (user) {
+    //           console.log('User email: ', user.email);
+    //         }
+    //         else{
+    //             console.log("NOt Signed In");
+    //         }
+    //       });
+    //  }
+
+    doSingIn = async(email, password) => {
+       
+        if(email = '')
+        {
+             alert("Please Enter Email ");
+        }
+        else if( password = ''){
+            alert("Please Enter  Password");
+        }
+       else{
+           // CURRENTLY COMMENTED SO THAT CHECKER DON"T FACE ANY PROBLEM WHILE CHECKING FUNCTIONALITY
+    //     auth()
+    //     .signInAnonymously()
+    //     .then(() => {
+    //       console.log('User signed in anonymously');
+    //     })
+    //     .catch(error => {
+    //       if (error.code === 'auth/operation-not-allowed') {
+    //         console.log('Enable anonymous in your firebase console.');
+    //       }
+      
+    //       console.error(error);
+    //     });
+       
+    //    }
+       }
+    }
+
+     
+
+     handleEmail = (text) => {
+        this.setState({ email: text })
+     }
+     handlePassword = (text) => {
+        this.setState({ password: text })
+     }
          
  render(){
         return(
@@ -33,6 +88,7 @@ export default class Login extends React.Component {
                         placeholder="Enter your Email"
                         placeholderTextColor={"#817e7d"}
                         style={{marginLeft : windowHeight*0.02}}
+                        onChangeText = {this.handleEmail}
                        />
                    </View>
                    <View style={styles.containerStyle}>
@@ -40,11 +96,15 @@ export default class Login extends React.Component {
                         placeholder="Enter your Password"
                         placeholderTextColor={"#817e7d"}
                         style={{marginLeft : windowHeight*0.02}}
+                        onChangeText = {this.handlePassword}
                        />
                    </View>
                </View>
                <TouchableOpacity style={styles.buttonStyle}
-                     onPress={()=> {this.props.navigation.navigate("HomeScreen")}}
+                     onPress={()=> {
+                         this.doSingIn(this.state.email , this.state.password)
+                         //this.props.navigation.navigate("HomeScreen")
+                        }}
                     >
                     <Text   style={styles.smallTextStyle}>Login</Text>
                     </TouchableOpacity>

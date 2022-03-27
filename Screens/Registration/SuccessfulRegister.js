@@ -4,8 +4,22 @@ import { ScrollView, TextInput, TouchableOpacity } from "react-native-gesture-ha
 import {Picker} from '@react-native-picker/picker';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
+import auth from '@react-native-firebase/auth';
 
 export default class SuccessfullyRegister extends React.Component {
+
+
+     login() {
+        auth().onAuthStateChanged((user) => {
+            if (user) {
+              console.log('User email: ', user.email);
+              this.props.navigation.navigate("HomeScreen");
+            }
+            else{
+                this.props.navigation.navigate("Login");
+            }
+          });
+    }
          
  render(){
         return(
@@ -20,7 +34,7 @@ export default class SuccessfullyRegister extends React.Component {
     
     <Text style={styles.bigText}>You have Successfully Registered !!</Text>
     <TouchableOpacity
-    onPress={()=>{this.props.navigation.navigate("Login")}}
+    onPress={()=>{this.login()}}
     >
         <Text style={styles.SmallText}>Login Here</Text>
     </TouchableOpacity>

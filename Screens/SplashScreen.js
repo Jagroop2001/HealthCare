@@ -6,12 +6,23 @@ import {
   StyleSheet,
   Image
 } from 'react-native';
+import auth from '@react-native-firebase/auth';
 
 const SplashScreen = ({navigation}) => {
 
   useEffect(() => {
     setTimeout(() => {
-       navigation.navigate("IsRegistered");
+     
+        auth().onAuthStateChanged((user) => {
+            if (user) {
+              console.log('User email: ', user.email);
+              navigation.navigate("HomeScreen");
+            }
+            else{
+              navigation.navigate("IsRegistered");
+            }
+          });
+      
     }, 2000);
   }, []);
 
