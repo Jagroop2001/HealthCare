@@ -1,6 +1,5 @@
 # HealthCare 
 
-## Hackathon : ION<ATHON>
  
 ## Technology Used :
   1) React-Native
